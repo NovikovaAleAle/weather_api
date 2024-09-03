@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+rdb = RestDbApi.new('http://dataservice.accuweather.com/currentconditions/v1/294021/historical/24')
+res_body = rdb.call
+
+res_body.reverse_each do |el|
+  Weather.create(temperature: el['Temperature']['Metric']['Value'], epoch_time: el['EpochTime'])
+end
+
