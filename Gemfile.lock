@@ -82,8 +82,6 @@ GEM
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
-    factory_bot (6.4.6)
-      activesupport (>= 5.0.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -252,24 +250,23 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  base64
-  bigdecimal
+  base64 (~> 0.2.0)
+  bigdecimal (~> 3.1)
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner (~> 2.0)
-  dotenv
-  drb
-  factory_bot (~> 6.4)
-  json
+  dotenv (~> 3.1)
+  drb (~> 2.2)
+  json (~> 2.7)
   listen (~> 3.3)
-  mutex_m
+  mutex_m (~> 0.2.0)
   puma (~> 5.0)
-  rails (~> 6.1.7, >= 6.1.7.8)
+  rails (= 6.1.7.8)
   rest-client (~> 2.1)
   rspec-rails (~> 6.1)
   rufus-scheduler (~> 3.9)
-  sequel
-  spring
+  sequel (~> 5.84)
+  spring (~> 4.2)
   sqlite3 (~> 1.4)
   tzinfo-data
 
