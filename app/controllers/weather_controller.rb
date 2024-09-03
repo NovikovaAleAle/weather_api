@@ -31,20 +31,10 @@ class WeatherController < ApplicationController
 
     @weather = Weather.order(epoch_time: :asc)
     if (@weather.first.epoch_time - 4000) < timestamp && (@weather.last.epoch_time + 4000) > timestamp
-      time_after = @weather.find_by("epoch_time >= ?", timestamp)
-      if time_after == nil
-        time_after = @weather.last
-      end
-      if time_after != timestamp
-        time_before = @weather.find_by("epoch_time < ?", timestamp)
-        if time_before == nil
-          time_before = @weather.first
-        end
-        if (timestamp - time_before.epoch_time) < (time_after.epoch_time - timestamp)
-          render json: {temperature_by_time: time_before.temperature}
-        else
-          render json: {temperature_by_time: time_after.temperature}
-        end
+      time_after = @weather.find_by("epoch_time >= ?", timestamp) || time_after = @weather.last
+      time_before = @weather.find_by("epoch_time < ?", timestamp) || time_before = @weather.first
+      if (timestamp - time_before.epoch_time) < (time_after.epoch_time - timestamp)
+        render json: {temperature_by_time: time_before.temperature}
       else
         render json: {temperature_by_time: time_after.temperature}
       end
