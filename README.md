@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Before running the application, you must run the following commands:
 
-Things you may want to cover:
+# To fill the database with the initial data
+rails db:seed
 
-* Ruby version
+# Running the data collector in background
+ruby import_data.rb
 
-* System dependencies
+To run the application you need an APIkey located in file .env.
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
